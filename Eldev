@@ -1,0 +1,8 @@
+; -*- mode: emacs-lisp; lexical-binding: t -*-
+
+(eldev-require-version "1.11")
+
+(eldev-use-plugin 'autoloads)
+
+;; elisp-lint also runs checkdoc and package-lint, and checks indentation.
+(setf eldev-lint-default '(elisp re))

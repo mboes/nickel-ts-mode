@@ -1,0 +1,30 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        emacs: ['29.4', '30.2', '31.1']
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: purcell/setup-emacs@master
+        with:
+          version: ${{ matrix.emacs }}
+      - uses: emacs-eldev/setup-eldev@v1
+      - uses: mboes/setup-nickel@v1
+        with:
+          version: 1.18.0
+      - name: Install grammar
+        run: eldev eval "(treesit-install-language-grammar 'nickel)"
+      - name: Compile
+        run: eldev compile --warnings-as-errors
+      - name: Lint
+        run: eldev lint
+      - name: Test
+        run: eldev test
