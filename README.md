@@ -61,6 +61,17 @@ fun p1 p2 f => p1 f && p2 f
 #   ^ font-lock-variable-name-face
 ```
 
+## License
+
+Copyright © 2025-2026 Mathieu Boespflug
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+
+See [LICENSE](LICENSE) for details.
+
 [melpa]: https://melpa.org
 [nickel]: https://nickel-lang.org
 [tree-sitter]: https://tree-sitter.github.io/tree-sitter/
